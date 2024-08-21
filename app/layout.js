@@ -13,7 +13,9 @@ export default function RootLayout({children}) {
         <html lang="en">
         <body className={inter.className}>
         <main className="text-sm flex min-h-screen flex-col items-center p-4">
-            {children}
+            <div className="w-1/3">
+                {children}
+            </div>
         </main>
         </body>
         </html>
