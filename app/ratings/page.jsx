@@ -1,8 +1,8 @@
 'use client'
 import {useEffect, useState} from "react";
 import Link from "next/link";
-import RecipesTable from "@/components/RecipesTable";
 import useFetch from "@/hooks/useFetch";
+import RecipesTable from "@/components/RecipesTable";
 
 const RatingPage = () => {
 
@@ -21,8 +21,16 @@ const RatingPage = () => {
         handleSortRating('des');
     }, []);
 
+    if (isLoading) {
+        return <div>Cargando...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
     if (!recipes) {
-        return <div>No hay recetas</div>;
+        return <div>Recetas no encontrada</div>;
     }
 
     return (
@@ -38,11 +46,7 @@ const RatingPage = () => {
                         </a>
                 </div>
             </div>
-
-            {isLoading && <div>Cargando...</div>}
-            {error && <div>Error: {error.message}</div>}
-            {!isLoading && !error && <RecipesTable recipes={recipes} />}
-
+            <RecipesTable recipes={recipes} />
             <Link href="/" className="block underline mt-4">Volver a las recetas</Link>
         </>
     )

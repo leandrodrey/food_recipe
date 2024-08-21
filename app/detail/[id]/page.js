@@ -1,9 +1,9 @@
 'use client'
 import Link from "next/link";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
+import useFetch from "@/hooks/useFetch";
 import RecipesIngredients from "@/components/RecipesIngredients";
 import RecipesSteps from "@/components/RecipesSteps";
-import useFetch from "@/hooks/useFetch";
 
 const DetailPage = ({params}) => {
 
