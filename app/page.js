@@ -14,14 +14,24 @@ export default function Home() {
         setSearchTerm(searchTerm);
     };
 
+    if (isLoading) {
+        return <div>Cargando...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
+    if (!recipes) {
+        return <div>Recetas no encontrada</div>;
+    }
+
     return (
         <>
             <h1 className="text-2xl mb-2">Food Recipes</h1>
             <SearchBar onSearch={handleSearch} />
             <a href="/ratings" className="block underline py-2">Ver valoraciones</a>
-            {isLoading && <div>Cargando...</div>}
-            {error && <div>Error: {error.message}</div>}
-            {!isLoading && !error && <RecipesTable recipes={recipes} />}
+            <RecipesTable recipes={recipes} />
         </>
     );
 }
