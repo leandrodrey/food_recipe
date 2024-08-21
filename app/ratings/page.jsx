@@ -7,7 +7,7 @@ import RecipesTable from "@/components/RecipesTable";
 const RatingPage = () => {
 
     const [sort, setSort] = useState('des');
-    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe.elsuperhard.com/recipes/rating/${sort}`);
+    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/rating/${sort}`);
 
     const handleSortRating = (newSort) => {
         if (newSort !== 'asc' && newSort !== 'des') {

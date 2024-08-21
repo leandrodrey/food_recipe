@@ -8,7 +8,7 @@ export default function Home() {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe.elsuperhard.com/recipes/${searchTerm}`);
+    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/${searchTerm}`);
 
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);

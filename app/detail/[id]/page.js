@@ -8,13 +8,13 @@ import RecipesSteps from "@/components/RecipesSteps";
 const DetailPage = ({params}) => {
 
     const {id} = params;
-    const { data: recipe, isLoading, error, manualFetch } = useFetch(`https://food-recipe.elsuperhard.com/recipes/detail/${id}`);
+    const { data: recipe, isLoading, error, manualFetch } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/detail/${id}`);
 
     const handleRatingForm = (e) => {
         e.preventDefault();
         const ratingString = e.target.elements.rating.value;
         const rating = parseInt(ratingString, 10);
-        fetch(`https://food-recipe.elsuperhard.com/recipes/rating/${id}`, {
+        fetch(`https://food-recipe-api-two.vercel.app/recipes/rating/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
