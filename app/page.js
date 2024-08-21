@@ -48,7 +48,7 @@ export default function Home() {
                 </button>
             </form>
 
-            <a href="/recipes" className="block underline py-2">Ver valoraciones</a>
+            <a href="/ratings" className="block underline py-2">Ver valoraciones</a>
 
             <table className="table-auto">
                 <thead>
