@@ -1,18 +1,14 @@
 'use client'
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
+import useFetch from "@/hooks/useFetch";
 import RecipesTable from "@/components/RecipesTable";
 import SearchBar from "@/components/SearchBar";
-import useFetch from "@/hooks/useFetch";
 
 export default function Home() {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    let url = 'http://localhost:4000/recipes';
-    if (searchTerm) {
-        url = `http://localhost:4000/recipes/${searchTerm}`;
-    }
-    const { data: recipes, isLoading, error } = useFetch(url);
+    const { data: recipes, isLoading, error } = useFetch(`http://localhost:4000/recipes/${searchTerm}`);
 
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
