@@ -36,7 +36,7 @@ export default function Home() {
     return (
         <>
             <h1 className="text-2xl mb-2">Food Recipes</h1>
-            <form onSubmit={handleSearch} className="flex flex-row items-center justify-center">
+            <form onSubmit={handleSearch} className="flex flex-row">
                 <input
                     type="text"
                     id="search"
@@ -53,8 +53,8 @@ export default function Home() {
             <table className="table-auto">
                 <thead>
                 <tr>
-                    <th className="px-4 py-2">Nombre</th>
-                    <th className="px-4 py-2">Valoración</th>
+                    <th className="px-4 py-2 text-center">Nombre</th>
+                    <th className="px-4 py-2 text-center">Valoración</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@ export default function Home() {
                                 {recipe.name}
                             </Link>
                         </td>
-                        <td className="border px-4 py-2">{recipe.score}</td>
+                        <td className="border px-4 py-2 text-center">{recipe.score}</td>
                     </tr>
                 ))}
                 </tbody>
