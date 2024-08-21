@@ -8,7 +8,7 @@ export default function Home() {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    const { data: recipes, isLoading, error } = useFetch(`http://localhost:4000/recipes/${searchTerm}`);
+    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe.elsuperhard.com/recipes/${searchTerm}`);
 
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
