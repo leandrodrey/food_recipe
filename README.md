@@ -42,3 +42,10 @@ yarn dev
 
 ### 4. Abrir la aplicación
 Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver la aplicación.
+
+### 5. Iniciar el servidor de la API
+Para que la aplicación funcione correctamente, es necesario iniciar el servidor de la API. Puedes encontrar las instrucciones en el repositorio del backend.
+
+### 6. Configurar la URL de la API
+Por defecto, la aplicación está configurada para consumir la API en `http://localhost:4000`.
+Si la API se encuentra en otra URL, es necesario modificar  el archivo endpoints.js dentro de la carpeta config.
