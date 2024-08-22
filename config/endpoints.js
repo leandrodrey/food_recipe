@@ -1,5 +1,4 @@
-/*const BASE_URL = 'https://food-recipe-api.elsuperhard.com/';*/
-const BASE_URL = 'http://localhost:4000/';
+const BASE_URL = 'https://food-recipe-api.elsuperhard.com/';
 
 export const endpoints = {
     recipes: {
