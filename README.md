@@ -19,6 +19,8 @@ Puedes ver la consigna completa en el archivo EjercicioRecetario.pdf en este mis
 - React
 - Next.js
 - Tailwind CSS
+- Eslint
+- react-tabs
 
 ## Instalación
 
