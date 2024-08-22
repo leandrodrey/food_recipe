@@ -1,14 +1,16 @@
 'use client'
 import {useState} from 'react';
+import Link from "next/link";
+import {endpoints} from "@/config/endpoints";
 import useFetch from "@/hooks/useFetch";
-import RecipesTable from "@/components/RecipesTable";
 import SearchBar from "@/components/SearchBar";
+import RecipesTable from "@/components/RecipesTable";
 
 export default function Home() {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/${searchTerm}`);
+    const { data: recipes, isLoading, error } = useFetch(endpoints.recipes.getAll(searchTerm));
 
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
@@ -30,7 +32,7 @@ export default function Home() {
         <>
             <h1 className="text-2xl mb-2">Food Recipes</h1>
             <SearchBar onSearch={handleSearch} />
-            <a href="/ratings" className="block underline py-2">Ver valoraciones</a>
+            <Link href="/ratings" className="block underline py-2">Ver valoraciones</Link>
             <RecipesTable recipes={recipes} />
         </>
     );

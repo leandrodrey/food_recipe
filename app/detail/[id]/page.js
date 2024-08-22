@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
+import {endpoints} from "@/config/endpoints";
 import useFetch from "@/hooks/useFetch";
 import RecipesIngredients from "@/components/RecipesIngredients";
 import RecipesSteps from "@/components/RecipesSteps";
@@ -8,13 +9,14 @@ import RecipesSteps from "@/components/RecipesSteps";
 const DetailPage = ({params}) => {
 
     const {id} = params;
-    const { data: recipe, isLoading, error, manualFetch } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/detail/${id}`);
+
+    const { data: recipe, isLoading, error, manualFetch } = useFetch(endpoints.recipes.getRecipeById(id));
 
     const handleRatingForm = (e) => {
         e.preventDefault();
         const ratingString = e.target.elements.rating.value;
         const rating = parseInt(ratingString, 10);
-        fetch(`https://food-recipe-api-two.vercel.app/recipes/rating/${id}`, {
+        fetch(endpoints.recipes.setRecipeRating(id), {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,13 +1,15 @@
 'use client'
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import {endpoints} from "@/config/endpoints";
 import useFetch from "@/hooks/useFetch";
 import RecipesTable from "@/components/RecipesTable";
 
 const RatingPage = () => {
 
     const [sort, setSort] = useState('des');
-    const { data: recipes, isLoading, error } = useFetch(`https://food-recipe-api-two.vercel.app/recipes/rating/${sort}`);
+
+    const { data: recipes, isLoading, error } = useFetch(endpoints.recipes.getRecipesByRating(sort));
 
     const handleSortRating = (newSort) => {
         if (newSort !== 'asc' && newSort !== 'des') {
