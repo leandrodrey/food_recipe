@@ -1,8 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import {useRouter} from "next/navigation";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
+
+    const router = useRouter();
+
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (event) => {
@@ -11,7 +15,8 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSearch(searchTerm);
+        const newUrl = `/?search=${encodeURIComponent(searchTerm)}`;
+        router.push(newUrl);
     };
 
     return (
