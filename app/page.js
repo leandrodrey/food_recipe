@@ -1,17 +1,15 @@
+import {Suspense} from "react";
 import Link from "next/link";
 import {recipesService} from "@/services/recipes";
 import SearchBar from "@/components/SearchBar";
 import RecipesTable from "@/components/RecipesTable";
-import {Suspense} from "react";
 import Loader from "@/components/Loader";
 
 export default async function Home({searchParams}) {
 
-    let recipes = await recipesService.getRecipes({ searchTerm: searchParams.search });
+    const recipes = await recipesService.getRecipes({ searchTerm: searchParams.search });
 
-    if (!recipes) {
-        return <div>Recetas no encontradas</div>;
-    }
+    if (!recipes) {return <div>Recetas no encontradas</div>;}
 
     return (
         <>

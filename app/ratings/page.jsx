@@ -1,6 +1,8 @@
+import {Suspense} from "react";
 import Link from "next/link";
 import {recipesService} from "@/services/recipes";
 import RecipesRating from "@/components/RecipesRating";
+import Loader from "@/components/Loader";
 
 const RatingPage = async () => {
 
@@ -13,7 +15,9 @@ const RatingPage = async () => {
     return (
         <>
             <h2 className="mb-4 text-2xl">Valoraciones</h2>
-            <RecipesRating recipes={recipes} />
+            <Suspense fallback={<Loader/>}>
+                <RecipesRating recipes={recipes}/>
+            </Suspense>
             <Link href="/" className="block underline mt-4">Volver a las recetas</Link>
         </>
     )

@@ -1,7 +1,9 @@
+import {Suspense} from "react";
 import Link from "next/link";
 import {recipesService} from "@/services/recipes";
 import RecipeTabsInformation from "@/components/RecipeTabsInformation";
 import RatingForm from "@/components/RatingForm";
+import Loader from "@/components/Loader";
 
 const DetailPage = async ({params}) => {
 
@@ -15,7 +17,9 @@ const DetailPage = async ({params}) => {
     return (
         <>
             <h2 className="mb-4 text-2xl">{recipe.name} ({recipe.score ? recipe.score : "Sin valoración"})</h2>
-            <RecipeTabsInformation recipe={recipe} />
+            <Suspense fallback={<Loader/>}>
+                <RecipeTabsInformation recipe={recipe}/>
+            </Suspense>
             <RatingForm recipeId={recipe.id}/>
             <Link href="/" className="block underline mt-4">Volver a las recetas</Link>
         </>

@@ -1,13 +1,12 @@
 'use client';
-
 import { useState } from 'react';
 import {useRouter} from "next/navigation";
 
 const SearchBar = () => {
 
-    const router = useRouter();
-
     const [searchTerm, setSearchTerm] = useState('');
+
+    const router = useRouter();
 
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
