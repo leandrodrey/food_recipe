@@ -18,6 +18,15 @@ const getRecipeById = async (id) => {
     return await response.json();
 }
 
+const getRecipesByRating = async (sort) => {
+    const url = endpoints.recipes.getRecipesByRating(sort);
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) {
+        throw new Error('Error al obtener los datos');
+    }
+    return await response.json();
+}
+
 const updateRatingById = async (id, rating) => {
     const url = endpoints.recipes.setRecipeRating(id);
     const response = await fetch(url, {
@@ -36,5 +45,6 @@ const updateRatingById = async (id, rating) => {
 export const recipesService = {
     getRecipes,
     getRecipeById,
+    getRecipesByRating,
     updateRatingById
 }
