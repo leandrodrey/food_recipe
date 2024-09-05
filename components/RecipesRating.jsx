@@ -9,10 +9,13 @@ import Loader from "@/components/Loader";
 
 const RecipesRating = ({ recipes: initialRecipes }) => {
 
-    const [sort, setSort] = useState('des');
+    const [sort, setSort] = useState('');
     const [recipes, setRecipes] = useState(initialRecipes || []);
 
-    const { data, error, isLoading } = useSWR(endpoints.recipes.getRecipesByRating(sort), fetcher);
+    const { data, error, isLoading } = useSWR(
+        sort ? endpoints.recipes.getRecipesByRating(sort) : null,
+        fetcher
+    );
 
     const handleSortRating = (newSort) => {
         if (newSort !== 'asc' && newSort !== 'des') {
