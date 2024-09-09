@@ -50,4 +50,4 @@ Para que la aplicación funcione correctamente, es necesario iniciar el servidor
 
 ### 6. Configurar la URL de la API
 Por defecto, la aplicación está configurada para consumir la API en `http://localhost:4000`.
-Si la API se encuentra en otra URL, es necesario modificar  el archivo endpoints.js dentro de la carpeta config.
+Si la API se encuentra en otra URL, es necesario modificar  el archivo endpoints.jsx dentro de la carpeta config.
