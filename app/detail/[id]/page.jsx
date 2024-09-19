@@ -5,6 +5,16 @@ import RecipeTabsInformation from "@/components/RecipeTabsInformation";
 import RatingForm from "@/components/RatingForm";
 import Loader from "@/components/Loader";
 
+export async function generateMetadata({params, searchParams}, parent) {
+    const {id} = params;
+    const recipe = await recipesService.getRecipeById(id);
+
+    return {
+        title: "Food Recipes APP | " + recipe.name + " (" + recipe.score + ")",
+        description: recipe.description
+    }
+}
+
 const DetailPage = async ({params}) => {
 
     const {id} = params;
