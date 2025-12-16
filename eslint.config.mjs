@@ -14,7 +14,7 @@ export default [
       '@next/next': nextPlugin,
     },
     rules: {
-      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...reactPlugin.configs.flat['jsx-runtime'].rules,
       ...hooksPlugin.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
